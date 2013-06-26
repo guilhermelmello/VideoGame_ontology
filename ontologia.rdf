@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://ontokem.egc.ufsc.br/ontologia#"
+     xml:base="file:/C:/Users/Emilia/Desktop/ontologiaConsole.owl"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#ano">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo referente ao per&#237;odo de tempo de 365 dias (12 meses)</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    <Midias rdf:about="http://ontokem.egc.ufsc.br/ontologia#blu_ray">
+        <nome rdf:datatype="&xsd;string">Blue Ray</nome>
+    </Midias>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#capcom">
+        <nome rdf:datatype="&xsd;string">Capcom</nome>
+        <pais rdf:datatype="&xsd;string">Jap&#227;o</pais>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#street_fighter_zero"/>
+    </Fabricantes>
+    <Midias rdf:about="http://ontokem.egc.ufsc.br/ontologia#cartucho">
+        <nome rdf:datatype="&xsd;string">Cartucho</nome>
+    </Midias>
+    <Midias rdf:about="http://ontokem.egc.ufsc.br/ontologia#cd">
+        <nome rdf:datatype="&xsd;string">CD</nome>
+    </Midias>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#conectividade">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Dispositivos"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo referente &#224; capacidade de comunica&#231;&#227;o entre dispositivos</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Consoles">
+        <rdfs:subClassOf rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Dispositivos"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Classe que representa a parte f&#237;sica (hardware) de um video game</rdfs:comment>
+    </owl:Class>
+    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Dispositivos">
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Classe que representa um componente capaz de enviar ou receber informa&#231;&#245;es (dados).</rdfs:comment>
+    </owl:Class>
+    <Midias rdf:about="http://ontokem.egc.ufsc.br/ontologia#dvd">
+        <nome rdf:datatype="&xsd;string">DVD</nome>
+    </Midias>
+    <owl:ObjectProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#ehDeFabricantes">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Representa a rela&#231;&#227;o da classe Fabricantes para outras classes.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Fabricantes"/>
+    </owl:ObjectProperty>
+    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Fabricantes">
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Classe que representa a entidade respons&#225;vel pela parte legal do video game.</rdfs:comment>
+    </owl:Class>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#game_boy_advance">
+        <ano rdf:datatype="&xsd;int">2001</ano>
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <geracao rdf:datatype="&xsd;int">6</geracao>
+        <internet rdf:datatype="&xsd;boolean">false</internet>
+        <memoria rdf:datatype="&xsd;string"
+            >WRAM de 32KB e VRAM de 256KB</memoria>
+        <nome rdf:datatype="&xsd;string"
+            >Game Boy Advance</nome>
+        <placa_grafica rdf:datatype="&xsd;string">Custom 2D Core</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">true</portatil>
+        <processador rdf:datatype="&xsd;string">ARM de 16,8-MHz</processador>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#street_fighter_zero"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_mario_world"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Consoles>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#geracao">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo respons&#225;vel por classificar um console em um grupo com base nas tecnologias encontradas neste.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#internet">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa a capacidade de acesso a uma rede mundial, permitindo a transfer&#234;ncia de dados e servi&#231;os na rede, assim como o jogo entre usu&#225;rios de consoles distantes.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Jogos">
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Classe que representa o conte&#250;do encontrado em uma m&#237;dia, o qual permite o entretenimento do usu&#225;rio.</rdfs:comment>
+    </owl:Class>
+    <Dispositivos rdf:about="http://ontokem.egc.ufsc.br/ontologia#kinect">
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <nome rdf:datatype="&xsd;string">Kinect</nome>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+    </Dispositivos>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#konami">
+        <nome rdf:datatype="&xsd;string">Konami</nome>
+        <pais rdf:datatype="&xsd;string">Jap&#227;o</pais>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#metal_gear_solid_4"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#pro_evolution_soccer_2013"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#silent_hill_homecoming"/>
+    </Fabricantes>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#memoria">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa o espa&#231;o de armazenamento de informa&#231;&#245;es dispon&#237;vel.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#metal_gear_solid_4">
+        <ano rdf:datatype="&xsd;int">2008</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#konami"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Metal Gear Solid 4</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_3"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#blu_ray"/>
+    </Jogos>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#microsoft">
+        <nome rdf:datatype="&xsd;string">Microsoft</nome>
+        <pais rdf:datatype="&xsd;string">EUA</pais>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#kinect"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#xbox_360"/>
+    </Fabricantes>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#multiplayer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo referente &#224; capacidade de intera&#231;&#227;o de dois ou mais jogadores (huumanos) em uma mesma partida.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#M&#237;dias">
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Classe que representa a parte f&#237;sica respons&#225;vel pelo armazenamento de elementos de um jogo, tornando o mesmo acess&#237;vel a um hardware espec&#237;fico (console).</rdfs:comment>
+    </owl:Class>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#neversoft">
+        <nome rdf:datatype="&xsd;string">Neversoft</nome>
+        <pais rdf:datatype="&xsd;string">EUA</pais>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#tony_hawks_pro_skater_1"/>
+    </Fabricantes>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#nintendo">
+        <nome rdf:datatype="&xsd;string">Nintendo</nome>
+        <pais rdf:datatype="&xsd;string">Jap&#227;o</pais>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#game_boy_advance"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo_64"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_nintendo"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#star_fox_64"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_mario_bros"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_mario_world"/>
+    </Fabricantes>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#nintendo_64">
+        <ano rdf:datatype="&xsd;int">1996</ano>
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <geracao rdf:datatype="&xsd;int">5</geracao>
+        <internet rdf:datatype="&xsd;boolean">false</internet>
+        <memoria rdf:datatype="&xsd;string">4MB de RDRAM</memoria>
+        <nome rdf:datatype="&xsd;string">Nintendo 64</nome>
+        <placa_grafica rdf:datatype="&xsd;string"
+            >SGI RCP 62,5 MHz 64-bit</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+        <processador rdf:datatype="&xsd;string"
+            >NEC VR4300 a 93,75 MHz</processador>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#star_fox_64"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#tony_hawks_pro_skater_1"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Consoles>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#nome">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Dispositivos"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Fabricantes"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#M&#237;dias"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo utilizado para definir e diferenciar inst&#226;ncias e agregar um significado ao mesmo.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#pais">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Fabricantes"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa uma regi&#227;o geogr&#225;fica considerada o territ&#243;rio f&#237;sico de um estado soberano.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#placa_grafica">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa um componente respons&#225;vel pelo processamento gr&#225;fico de um console.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#playstation_1">
+        <ano rdf:datatype="&xsd;int">1994</ano>
+        <conectividade rdf:datatype="&xsd;boolean">false</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#sony"/>
+        <geracao rdf:datatype="&xsd;int">5</geracao>
+        <internet rdf:datatype="&xsd;boolean">false</internet>
+        <memoria rdf:datatype="&xsd;string"
+            >RAM de 2MB, VRAM de 1MB e cart&#227;o de mem&#243;ria de 128k</memoria>
+        <nome rdf:datatype="&xsd;string">PSOne</nome>
+        <placa_grafica rdf:datatype="&xsd;string"
+            >CXD8561C0 da Sony</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+        <processador rdf:datatype="&xsd;string"
+            >MIPS R3000 a 33,8688 MHz</processador>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#street_fighter_zero"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#tony_hawks_pro_skater_1"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cd"/>
+    </Consoles>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#playstation_3">
+        <ano rdf:datatype="&xsd;int">2006</ano>
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#sony"/>
+        <geracao rdf:datatype="&xsd;int">7</geracao>
+        <internet rdf:datatype="&xsd;boolean">true</internet>
+        <memoria rdf:datatype="&xsd;string"
+            >256 MB de sistema e 256 MB de v&#237;deo (total de 512 MB RAM), Disco r&#237;gido SATA de 2.5&quot; (20, 40, 60, 80, 120, 160, 250, 320 ou 500 GB incluso) (atualiz&#225;vel e expans&#237;vel) e Mem&#243;ria Flash (12 GB)</memoria>
+        <nome rdf:datatype="&xsd;string">Playstation 3</nome>
+        <placa_grafica rdf:datatype="&xsd;string"
+            >550 MHz NVIDIA/SCEI RSX</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+        <processador rdf:datatype="&xsd;string"
+            >3,2 GHz Cell Broadband Engine com 1 PPE e 7 SPEs</processador>
+        <sistema_operacional rdf:datatype="&xsd;boolean">true</sistema_operacional>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#metal_gear_solid_4"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#pro_evolution_soccer_2013"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#silent_hill_homecoming"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#blu_ray"/>
+    </Consoles>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#portatil">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Dispositivos"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa a capacidadede f&#225;cil transporte e uso sem a necessidade de conex&#227;o com outros dispositivos, assim como alimenta&#231;&#227;o pr&#243;pria (presen&#231;a de bateria - energia)</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#pro_evolution_soccer_2013">
+        <ano rdf:datatype="&xsd;int">2012</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#konami"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Pro Evolution Soccer 2013</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_3"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#xbox_360"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#blu_ray"/>
+    </Jogos>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#processador">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa o componente principal respons&#225;vel pelo processamento de informa&#231;&#245;es (dados).</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <Dispositivos rdf:about="http://ontokem.egc.ufsc.br/ontologia#ps_move">
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <nome rdf:datatype="&xsd;string">PSMove</nome>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+    </Dispositivos>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#silent_hill_homecoming">
+        <ano rdf:datatype="&xsd;int">2008</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#konami"/>
+        <multiplayer rdf:datatype="&xsd;boolean">false</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Silent Hill - Homecoming</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_3"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#xbox_360"/>
+    </Jogos>
+    <owl:DatatypeProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#sistema_operacional">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Atributo que representa a parte l&#243;gica de um console, o qual &#233; respons&#225;vel pelo gerernciamento e funcionamento da parte f&#237;sica (hardware), permitindo a intera&#231;&#227;o com o software.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    <Fabricantes rdf:about="http://ontokem.egc.ufsc.br/ontologia#sony">
+        <nome rdf:datatype="&xsd;string">Sony</nome>
+        <pais rdf:datatype="&xsd;string">Jap&#227;o</pais>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_1"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_3"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#ps_move"/>
+    </Fabricantes>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#star_fox_64">
+        <ano rdf:datatype="&xsd;int">1997</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string">Star Fox 64</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo_64"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Jogos>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#street_fighter_zero">
+        <ano rdf:datatype="&xsd;int">1995</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#capcom"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Street Fighter Zero</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#game_boy_advance"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_1"/>
+    </Jogos>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#super_mario_bros">
+        <ano rdf:datatype="&xsd;int">1985</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Super Mario Bros</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_nintendo"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Jogos>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#super_mario_world">
+        <ano rdf:datatype="&xsd;int">1990</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Super Mario World</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#game_boy_advance"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_nintendo"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Jogos>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#super_nintendo">
+        <ano rdf:datatype="&xsd;int">1990</ano>
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo"/>
+        <geracao rdf:datatype="&xsd;int">4</geracao>
+        <internet rdf:datatype="&xsd;boolean">false</internet>
+        <memoria rdf:datatype="&xsd;string"
+            >Mem&#243;ria de v&#237;deo de 1 Megabit e  Video RAM de 128 KB</memoria>
+        <nome rdf:datatype="&xsd;string">Super Nintendo</nome>
+        <placa_grafica rdf:datatype="&xsd;string">Desconhecido</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+        <processador rdf:datatype="&xsd;string"
+            >16-bit 65c816 Ricoh 5A22 3.58 MHz</processador>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_mario_bros"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#super_mario_world"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#cartucho"/>
+    </Consoles>
+    <owl:ObjectProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#temConsoles">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Fabricantes"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Representa a rela&#231;&#227;o da classe Fabricantes para a classe Consoles.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Dispositivos"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#temJogos">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+                    <owl:Class rdf:about="http://ontokem.egc.ufsc.br/ontologia#Fabricantes"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Representa a rela&#231;&#227;o da classe Fabricantes para a classe Jogos.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Jogos"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://ontokem.egc.ufsc.br/ontologia#temMidias">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ontokem.egc.ufsc.br/ontologia#Consoles"/>
+        <rdfs:comment xml:lang="pt"
+            >DEFINI&#199;&#195;O: Representa a rela&#231;&#227;o da classe Consoles para a classe M&#237;dias.</rdfs:comment>
+        <rdfs:range rdf:resource="http://ontokem.egc.ufsc.br/ontologia#M&#237;dias"/>
+    </owl:ObjectProperty>
+    <Jogos rdf:about="http://ontokem.egc.ufsc.br/ontologia#tony_hawks_pro_skater_1">
+        <ano rdf:datatype="&xsd;int">1999</ano>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#neversoft"/>
+        <multiplayer rdf:datatype="&xsd;boolean">true</multiplayer>
+        <nome rdf:datatype="&xsd;string"
+            >Tony Hawks Pro Skater 1</nome>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#nintendo_64"/>
+        <temConsoles rdf:resource="http://ontokem.egc.ufsc.br/ontologia#playstation_1"/>
+    </Jogos>
+    <Consoles rdf:about="http://ontokem.egc.ufsc.br/ontologia#xbox_360">
+        <ano rdf:datatype="&xsd;int">2005</ano>
+        <conectividade rdf:datatype="&xsd;boolean">true</conectividade>
+        <ehDeFabricantes rdf:resource="http://ontokem.egc.ufsc.br/ontologia#microsoft"/>
+        <geracao rdf:datatype="&xsd;int">7</geracao>
+        <internet rdf:datatype="&xsd;boolean">true</internet>
+        <memoria rdf:datatype="&xsd;string"
+            >512 MB DDR3 RAM, Disco r&#237;gido: 20, 60, 120, 250 e 320 GB e Cart&#227;o de mem&#243;ria: 64, 256 ou 512 MB</memoria>
+        <nome rdf:datatype="&xsd;string">Xbox 360</nome>
+        <placa_grafica rdf:datatype="&xsd;string">ATI Xenos</placa_grafica>
+        <portatil rdf:datatype="&xsd;boolean">false</portatil>
+        <processador rdf:datatype="&xsd;string"
+            >PPC Tri-Core 3.2 GHz - &quot;Xenon&quot;</processador>
+        <sistema_operacional rdf:datatype="&xsd;boolean">true</sistema_operacional>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#pro_evolution_soccer_2013"/>
+        <temJogos rdf:resource="http://ontokem.egc.ufsc.br/ontologia#silent_hill_homecoming"/>
+        <temMidias rdf:resource="http://ontokem.egc.ufsc.br/ontologia#dvd"/>
+    </Consoles>
+</rdf:RDF>
